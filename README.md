@@ -17,7 +17,7 @@ Create a wrapper for the component
 
     <div class="slider" id="slider_parent"></div>
 
-And instantiate `JS_Slider()` from the script
+Instantiate `JS_Slider()` from the script
 
     new JS_Slider([id], [options])
     
@@ -35,20 +35,27 @@ Example:
 
 # Label Options
 	prompt: "Slide now", //label when the slider is not yet complete
+	
 	success: "Slide OK", //label when the slider is already complete
 
 # Methods
 
 	reset() //resets the slider status back to default. DO NOT MODIFY
+	
 	onReset() //executes when the slider has been reset
+	
 	onSuccess() //executes when the slider has been completed
-	onFail() //executes when the slider has been dragged with but not completed
+	
+	onFail() //executes when the slider drag is finished/interrupted but not completed
 
 # Properties
 
 	progress: 0, //the current percentage the slider is in while being dragged
+	
 	successful: false, //check the status of the component
+	
 	progressThreshold: 70 //% when the slider will succeed when drag is finished/interrupted
+	
 	labels: { //contains the labels used in the slider
        prompt: "Slide now", //before drag
        success: "Slide OK"  //after drag
@@ -71,3 +78,7 @@ For applying your own styles:
 `.js-slider-container  .js-slider  .js-handle` for the round handle
 
 `.js-slider-container  .js-slider  .js-handle  .js-icon` for the icon
+
+# Note
+
+Loading the component will fail if `window.JS_Slider()` does not contain a falsy value.
