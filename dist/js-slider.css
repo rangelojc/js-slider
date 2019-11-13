@@ -117,5 +117,5 @@
     background-size: 100%;
     background-color: transparent;
     outline: none;
-    background-image: url("drag-icon.svg");
+    /* background-image: url("js-slider-drag.svg"); */
 }

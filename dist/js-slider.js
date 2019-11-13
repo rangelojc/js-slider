@@ -3,6 +3,8 @@
         return document.querySelector(selector);
     }
 
+    var svg = '<?xml version="1.0" encoding="utf - 8"?> <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve"> <style type="text/css"> .st0{opacity:1;} .st1{fill:#d15f5f;} </style> <g id="Shape_18_copy" class="st0"> <g> <path class="st1" d="M20.2,4.5c0,1.7,0,3.7,0,5.4c8.1,8.1,16,16,24.1,24.1c-8.1,8.1-16,16-24.1,24.1l0,0c0,1.7,0,3.7,0,5.4 C30,53.7,39.8,43.8,49.7,34C39.8,24.2,30,14.3,20.2,4.5z"/> </g> </g> </svg>';
+
     var template = '\
     <div class="js-slider-container">\
         <div class="js-slider inactive">\
@@ -12,7 +14,7 @@
             </span>\
             <div class="js-bar" style=""></div>\
             <div class="js-handle" style="">\
-                <span class="js-icon"></span>\
+                <span class="js-icon">{{svg}}</span>\
             </div>\
         </div>\
     </div>\
@@ -39,10 +41,10 @@
             handlew: 0,
             edgeoffset: 0,
 
-            progress: 0, //not meant to be used outside, but you can also check this if it is at 0 or 100.
+            progress: 0,
 
-            verified: false, //use this to access a boolean of the slider's verification status
-            progressThreshold: 70, //use this to set the percentage for when the slider will accept a successful verification
+            successful: false,
+            progressThreshold: 70,
 
             _empty: function () { },
 
@@ -125,7 +127,7 @@
                 this.handle.onmousedown = this._empty;
                 this.handle.ontouchstart = this._empty;
 
-                this.verified = true;
+                this.successful = true;
             },
 
             rollback: function () {
@@ -133,7 +135,7 @@
                 this.track.classList.add('transition');
                 this.track.classList.remove('success');
                 this.handle.style.marginLeft = this.edgeoffset + "px";
-                this.verified = false;
+                this.successful = false;
             },
 
             setProgress: function (val) {
@@ -165,6 +167,7 @@
                 template = template
                     .replace("{{prompt}}", this.labels.prompt)
                     .replace("{{success}}", this.labels.success)
+                    .replace("{{svg}}", svg)
 
                 this.parent.insertAdjacentHTML("beforeend", template);
 
@@ -183,20 +186,14 @@
 
             //External methods
 
-            //use this method to force reset the slider. Note: not meant to be modified
             reset: function () {
                 this.rollback();
                 this.init();
                 this.onReset();
             },
 
-            //attach your custom function here during instantiation for when the slider has been reset
             onReset: function () { },
-
-            //attach your custom function here during instantiation for when the authentication succeeds
             onSuccess: function () { },
-
-            //attach your custom function here during instantation for when the authentication fails
             onFail: function () { },
         }
 
@@ -208,7 +205,7 @@
 
     function _init() {
         if (_context.JS_Slider) {
-            console.error("Failed to initialize JS_Slider(), it is already existing in the Window object");
+            console.error("Failed to initialize JS_Slider, it is already existing in the Window object");
         }
         else {
             _context.JS_Slider = JS_Slider;
