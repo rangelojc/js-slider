@@ -4,6 +4,7 @@ Simple cross-browser slider component made in native javascript
 
 # Download & Installation
 Download source files from `dist/` and paste to your project.
+
 Reference files from appropriate folders in your HTML
 
     <link rel="stylesheet" href="dist/js-slider.css">
@@ -43,3 +44,16 @@ And instantiate `JS_Slider()` from the script
        prompt: "Slide now", //before drag
        success: "Slide OK"  //after drag
     }
+
+# CSS Classes
+
+For applying your own styles:
+
+`.js-slider-container  .js-slider` for the track
+`.js-slider-container  .js-slider  .js-label` for the labels
+`.js-slider-container  .js-slider  .js-label .prompt` for the prompt label
+`.js-slider-container  .js-slider  .js-label .success` for the success label
+
+`.js-slider-container  .js-slider  .js-bar` for the progress bar
+`.js-slider-container  .js-slider  .js-handle` for the round handle
+`.js-slider-container  .js-slider  .js-handle  .js-icon` for the icon
