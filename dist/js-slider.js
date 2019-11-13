@@ -8,7 +8,7 @@
     var template = '\
     <div class="js-slider-container">\
         <div class="js-slider inactive">\
-            <span class="js-label">{{prompt}}</span>\
+            <span class="js-label prompt">{{prompt}}</span>\
             <span class="js-label success">\
                 {{success}} \
             </span>\
