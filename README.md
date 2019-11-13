@@ -9,8 +9,8 @@ Download source files from `dist/` and paste to your project.
 
 Reference files from appropriate folders in your HTML
 
-    <link rel="stylesheet" href="dist/js-slider.css">
-    <script src="dist/js-slider.js"></script>
+    <link rel="stylesheet" href="path/to/your/folder/js-slider.css">
+    <script src="path/to/your/folder/js-slider.js"></script>
 
 # Usage
 Create a wrapper for the component
