@@ -2,6 +2,8 @@
 
 Simple cross-browser slider component made in native javascript
 
+Demo: https://rangelojc.github.io/js-slider
+
 # Download & Installation
 Download source files from `dist/` and paste to your project.
 
