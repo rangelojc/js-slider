@@ -18,13 +18,20 @@ Create a wrapper for the component
 And instantiate `JS_Slider()` from the script
 
     new JS_Slider([id], [options])
+    
+Example:
+    
+    var slider = new JS_Slider("slider_parent", {
+	    prompt:  "Slide to authenticate",
+	    success:  "Authentication successful"
+    });
 
 # Arguments
 
- 1. id - the id attribute of the wrapper
+ 1. id - the id attribute of the wrapper, no need to include # selector.
  2. options - object containing label options
 
-# Options
+# Label Options
 	prompt: "Slide now", //label when the slider is not yet complete
 	success: "Slide OK", //label when the slider is already complete
 
