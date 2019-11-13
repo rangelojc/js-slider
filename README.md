@@ -50,10 +50,15 @@ And instantiate `JS_Slider()` from the script
 For applying your own styles:
 
 `.js-slider-container  .js-slider` for the track
+
 `.js-slider-container  .js-slider  .js-label` for the labels
+
 `.js-slider-container  .js-slider  .js-label .prompt` for the prompt label
+
 `.js-slider-container  .js-slider  .js-label .success` for the success label
 
 `.js-slider-container  .js-slider  .js-bar` for the progress bar
+
 `.js-slider-container  .js-slider  .js-handle` for the round handle
+
 `.js-slider-container  .js-slider  .js-handle  .js-icon` for the icon
