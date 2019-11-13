@@ -12,15 +12,61 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="dist/js-slider.css">
+    <script src="dist/js-slider.js"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+            font-family: 'Segoe UI', Verdana, sans-serif, Calibri;
+        }
+
+        #app {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #app .title {
+            width: 200px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        #app .slider {
+            height: auto;
+            width: 500px;
+        }
+    </style>
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <div id="app">
+        <div class="title">JS-Slider</div>
+        <div class="slider" id="slider_parent">
+        </div>
+    </div>
 
-    <script src="" async defer></script>
+    <script>
+        var slider = null;
+
+        window.onload = function () {
+            slider = new JS_Slider("slider_parent", {
+                prompt: "Slide to authenticate",
+                success: "Authentication successful"
+            });
+        };
+    </script>
 </body>
 
 </html>

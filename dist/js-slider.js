@@ -1,31 +1,38 @@
-
-
 (function (_context) {
     var _$ = function (selector) {
-        return document.querySelectorAll(selector);
+        return document.querySelector(selector);
     }
 
     var template = '\
-    <div class="js-slider-container" id="login_auth_slider">\
+    <div class="js-slider-container">\
         <div class="js-slider inactive">\
-            <span class="js-label">{{message}}</span>\
+            <span class="js-label">{{prompt}}</span>\
             <span class="js-label success">\
-                {{success}}\
+                {{success}} \
             </span>\
             <div class="js-bar" style=""></div>\
             <div class="js-handle" style="">\
-                <span class="p2p-icon auth-drag"></span>\
+                <span class="js-icon"></span>\
             </div>\
         </div>\
     </div>\
     ';
 
-    function JS_Slider(parentId) {
+    function JS_Slider(parentId, options) {
+        options = options || {}
+
         const component = {
-            handle: _$('#' + parentId + ' .js-handle')[0],
-            track: _$('#' + parentId + ' .js-slider')[0],
-            bar: _$('#' + parentId + ' .js-bar')[0],
-            success: _$('#' + parentId + ' .js-label.success')[0],
+            parentId: parentId,
+            parent: _$('#' + parentId),
+            handle: null,
+            track: null,
+            bar: null,
+            success: null,
+
+            labels: {
+                prompt: options.prompt || "Slide now",
+                success: options.success || "Slide OK"
+            },
 
             trackw: 0,
             trackx: 0,
@@ -42,9 +49,9 @@
             grabHandle: function () {
                 var owner = this;
 
-                this.trackw = _$(this.track).outerWidth();
-                this.handlew = _$(this.handle).outerWidth();
-                this.trackx = _$(this.track).offset().left;
+                this.trackw = this.track.offsetWidth;
+                this.handlew = this.handle.offsetWidth;
+                this.trackx = this.track.getBoundingClientRect().left;
 
                 this.track.classList.remove('transition');
 
@@ -154,6 +161,21 @@
                 this.track.classList.remove('inactive');
             },
 
+            render: function () {
+                template = template
+                    .replace("{{prompt}}", this.labels.prompt)
+                    .replace("{{success}}", this.labels.success)
+
+                this.parent.insertAdjacentHTML("beforeend", template);
+
+                this.handle = _$('#' + this.parentId + ' .js-handle');
+                this.track = _$('#' + this.parentId + ' .js-slider');
+                this.bar = _$('#' + this.parentId + ' .js-bar');
+                this.success = _$('#' + this.parentId + ' .js-label.success');
+
+
+            },
+
             init: function () {
                 this.setEvents();
                 this.rollback();
@@ -178,6 +200,7 @@
             onFail: function () { },
         }
 
+        component.render();
         component.init();
 
         return component;
