@@ -81,4 +81,4 @@ For applying your own styles:
 
 # Note
 
-Loading the component will fail if `window.JS_Slider()` does not contain a falsy value.
+Loading the component will fail if `window.JS_Slider` does not contain a falsy value.
