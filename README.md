@@ -13,13 +13,17 @@ Reference files from appropriate folders in your HTML
     <script src="path/to/your/folder/js-slider.js"></script>
 
 # Usage
-Create a wrapper for the component
+Create a wrapper for the component,
 
     <div class="slider" id="slider_parent"></div>
 
-Instantiate `JS_Slider()` from the script
+Instantiate `JS_Slider()` from the script (you may or may not assign this instance to a variable),
 
-    new JS_Slider([id], [options])
+    var slider = new JS_Slider([id], [options])
+
+Add custom events by assigning to supplied methods like so,
+
+    slider.onSuccess = myFunction;
     
 Example:
     
@@ -27,6 +31,8 @@ Example:
 	    prompt:  "Slide to authenticate",
 	    success:  "Authentication successful"
     });
+
+    slider.onSuccess = () => console.log('Success!');
 
 # Arguments
 
