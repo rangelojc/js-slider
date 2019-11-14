@@ -5,12 +5,14 @@ Simple cross-browser slider component made in native javascript
 Demo: https://rangelojc.github.io/js-slider
 
 # Download & Installation
-Download source files from `dist/` and paste to your project.
+Download `js-slider.js` and `js-slider.css` from `dist` and paste to your project.
 
 Reference files from appropriate folders in your HTML
 
     <link rel="stylesheet" href="path/to/your/folder/js-slider.css">
     <script src="path/to/your/folder/js-slider.js"></script>
+
+For import, download  `js-slider-module.js` from `dist` and paste to your project.
 
 # Usage
 Create a wrapper for the component,
@@ -33,6 +35,10 @@ Example:
     });
 
     slider.onSuccess = () => console.log('Success!');
+
+If using modules,
+
+    import JS_Slider from './path/to/your/folder/js-slider-modules.js'
 
 # Arguments
 
