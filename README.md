@@ -15,15 +15,15 @@ Reference files from appropriate folders in your HTML
 For import, download  `js-slider-module.js` from `dist` and paste to your project.
 
 # Usage
-Create a wrapper for the component,
+Create a wrapper for the component and add id attribute
 
     <div class="slider" id="slider_parent"></div>
 
-Instantiate `JS_Slider()` from the script (you may or may not assign this instance to a variable),
+Instantiate `JS_Slider()` from the script (you may or may not assign this instance to a variable) with the relevant arguments
 
     var slider = new JS_Slider([id], [options])
 
-Add custom events by assigning to supplied methods like so,
+Add custom events by assigning to supplied methods like so
 
     slider.onSuccess = myFunction;
     
@@ -36,7 +36,7 @@ Example:
 
     slider.onSuccess = () => console.log('Success!');
 
-If using modules,
+If using modules, import before using
 
     import JS_Slider from './path/to/your/folder/js-slider-modules.js'
 
