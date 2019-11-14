@@ -9,9 +9,7 @@
     <div class="js-slider-container">\
         <div class="js-slider inactive">\
             <span class="js-label prompt">{{prompt}}</span>\
-            <span class="js-label success">\
-                {{success}} \
-            </span>\
+            <span class="js-label success">{{success}}</span>\
             <div class="js-bar" style=""></div>\
             <div class="js-handle" style="">\
                 <span class="js-icon">{{svg}}</span>\
