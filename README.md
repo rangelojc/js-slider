@@ -1,6 +1,7 @@
 # JS-Slider
 
-Simple cross-browser slider component made in native javascript
+Simple cross-browser slider component made in native Javascript.
+Works in both mouse and touch inputs.
 
 Demo: https://rangelojc.github.io/js-slider
 
