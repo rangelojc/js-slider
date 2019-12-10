@@ -65,9 +65,9 @@ If using modules, import before using
 
 	progress: 0, //the current percentage the slider is in while being dragged
 	
-	successful: false, //check the status of the component
+	successful: false, //the status whether the slider is complete or not
 	
-	progressThreshold: 70 //% when the slider will succeed when drag is finished/interrupted
+	progressThreshold: 70 //% when the slider will succeed when drag is finished/interrupted. 70 is default.
 	
 	labels: { //contains the labels used in the slider
        prompt: "Slide now", //before drag
